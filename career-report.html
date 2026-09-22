@@ -7,7 +7,6 @@
   <title>网络工程师职业生涯发展报告</title>
   <style>
     :root {
-      /* Page / report tokens — Business Blue preset */
       --page-bg: #FFFFFF;
       --page-surface: #F6F8FA;
       --page-surface-muted: #EEF2F6;
@@ -22,8 +21,6 @@
       --page-brand-soft: #EEF5FE;
       --page-brand-soft-strong: #DCEAFB;
       --page-brand-text: #0550A6;
-
-      /* Backward-compatible report variables */
       --bg: #FFFFFF;
       --bg2: #F6F8FA;
       --rule: #D1D9E0;
@@ -36,8 +33,6 @@
       --accent-active: #0550A6;
       --accent-soft: #EEF5FE;
       --accent2: #8250DF;
-
-      /* Chart / data tokens */
       --chart-series-1: #0969DA;
       --chart-series-2: #8250DF;
       --chart-series-3: #06B6D4;
@@ -52,8 +47,6 @@
       --chart-axis: #6B7280;
       --chart-label: #6B7280;
       --chart-tooltip-bg: #FFFFFF;
-
-      /* Semantic compatibility tokens */
       --success: #52C41A;
       --info: #0969DA;
       --reminder: #FF7A45;
@@ -62,292 +55,78 @@
       --positive: #52C41A;
       --negative: #FF4D4F;
     }
-
-    /* === Structural variables === */
     :root {
-      --space-1: 4px;
-      --space-2: 8px;
-      --space-3: 12px;
-      --space-4: 16px;
-      --space-5: 24px;
-      --space-6: 32px;
-      --space-7: 48px;
-      --space-8: 64px;
-      --radius-sm: 4px;
-      --radius-md: 8px;
-      --radius-lg: 12px;
-      --radius-pill: 999px;
+      --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+      --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 64px;
+      --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px; --radius-pill: 999px;
       --font-sans: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       --font-serif: Georgia, 'Times New Roman', serif;
       --font-mono: 'SFMono-Regular', Consolas, 'Courier New', monospace;
       --font-metric: var(--font-sans);
       --max: 1000px;
     }
-
-    /* === Base styles === */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-size: 16px; scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-sans);
-      color: var(--ink);
-      background: var(--bg);
-      line-height: 1.75;
-      padding: 2rem 0;
-      font-size: 15px;
-    }
+    body { font-family: var(--font-sans); color: var(--ink); background: var(--bg); line-height: 1.75; padding: 2rem 0; font-size: 15px; }
     article.page { width: 100%; }
-    .page__content,
-    .report-intro__surface {
-      width: calc(100% - 2rem);
-      max-width: var(--max);
-      margin: 0 auto;
-    }
+    .page__content, .report-intro__surface { width: calc(100% - 2rem); max-width: var(--max); margin: 0 auto; }
     .table-wrap { width: 100%; overflow: visible; }
     table { width: 100%; border-collapse: collapse; table-layout: auto; }
-    th, td {
-      padding: var(--space-2) var(--space-3);
-      border-bottom: 1px solid var(--rule);
-      text-align: left;
-      vertical-align: top;
-      overflow-wrap: anywhere;
-      font-size: 14px;
-    }
-    th {
-      background: var(--page-surface);
-      font-weight: 600;
-      color: var(--page-text);
-    }
+    th, td { padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; overflow-wrap: anywhere; font-size: 14px; }
+    th { background: var(--page-surface); font-weight: 600; color: var(--page-text); }
     img, svg, canvas { max-width: 100%; height: auto; }
-
-    /* === Intro === */
     .report-intro { margin-bottom: var(--space-7); }
-    .report-intro__surface {
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
-      color: var(--page-brand-text, var(--ink));
-      background: var(--page-brand-soft, var(--page-surface-muted, var(--bg2)));
-      border-radius: var(--radius-lg);
-      padding: var(--space-7);
-    }
-    .report-intro__content {
-      position: relative;
-      z-index: 1;
-      max-width: 760px;
-    }
-    .report-intro__surface::before,
-    .report-intro__surface::after {
-      content: "";
-      position: absolute;
-      z-index: 0;
-      pointer-events: none;
-    }
-    .report-intro__surface::before {
-      width: 200px; height: 200px;
-      top: -80px; right: -56px;
-      border-radius: 50%;
-      background: var(--page-brand-soft-strong, var(--page-surface-muted, var(--bg2)));
-      opacity: 0.65;
-    }
-    .report-intro__surface::after {
-      width: 140px; height: 100px;
-      right: 100px; bottom: -40px;
-      border-radius: var(--radius-lg);
-      background: var(--page-surface, var(--bg));
-      opacity: 0.50;
-      transform: rotate(-8deg);
-    }
-    .report-intro h1 {
-      line-height: 1.25;
-      overflow-wrap: anywhere;
-      font-size: 2rem;
-      font-weight: 700;
-    }
-    .report-intro__summary {
-      max-width: 70ch;
-      margin-top: var(--space-3);
-      color: var(--page-text-secondary, var(--text-secondary, var(--muted)));
-      font-size: 1rem;
-    }
-    .report-intro__meta {
-      margin-top: var(--space-4);
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-3);
-      font-size: 13px;
-      color: var(--page-text-muted, var(--muted));
-    }
+    .report-intro__surface { position: relative; isolation: isolate; overflow: hidden; color: var(--page-brand-text, var(--ink)); background: var(--page-brand-soft, var(--page-surface-muted, var(--bg2))); border-radius: var(--radius-lg); padding: var(--space-7); }
+    .report-intro__content { position: relative; z-index: 1; max-width: 760px; }
+    .report-intro__surface::before, .report-intro__surface::after { content: ""; position: absolute; z-index: 0; pointer-events: none; }
+    .report-intro__surface::before { width: 200px; height: 200px; top: -80px; right: -56px; border-radius: 50%; background: var(--page-brand-soft-strong, var(--page-surface-muted, var(--bg2))); opacity: 0.65; }
+    .report-intro__surface::after { width: 140px; height: 100px; right: 100px; bottom: -40px; border-radius: var(--radius-lg); background: var(--page-surface, var(--bg)); opacity: 0.50; transform: rotate(-8deg); }
+    .report-intro h1 { line-height: 1.25; overflow-wrap: anywhere; font-size: 2rem; font-weight: 700; }
+    .report-intro__summary { max-width: 70ch; margin-top: var(--space-3); color: var(--page-text-secondary, var(--text-secondary, var(--muted))); font-size: 1rem; }
+    .report-intro__meta { margin-top: var(--space-4); display: flex; flex-wrap: wrap; gap: var(--space-3); font-size: 13px; color: var(--page-text-muted, var(--muted)); }
     .report-intro__meta span { white-space: nowrap; }
-    @media (max-width: 768px) {
-      body { padding: 1rem 0; }
-      .report-intro__surface { padding: var(--space-5); }
-      .report-intro__surface::before {
-        width: 124px; height: 124px;
-        top: -44px; right: -52px;
-        opacity: 0.38;
-      }
-      .report-intro__surface::after { display: none; }
-    }
-    @media print, (forced-colors: active) {
-      .report-intro__surface::before,
-      .report-intro__surface::after { display: none; }
-    }
-
-    /* === Content sections === */
+    @media (max-width: 768px) { body { padding: 1rem 0; } .report-intro__surface { padding: var(--space-5); } .report-intro__surface::before { width: 124px; height: 124px; top: -44px; right: -52px; opacity: 0.38; } .report-intro__surface::after { display: none; } }
+    @media print, (forced-colors: active) { .report-intro__surface::before, .report-intro__surface::after { display: none; } }
     main section { margin-bottom: var(--space-7); }
     main section:last-child { margin-bottom: 0; }
-    h2 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--page-text);
-      margin-bottom: var(--space-4);
-      padding-bottom: var(--space-2);
-      border-bottom: 2px solid var(--accent);
-      display: inline-block;
-    }
-    h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--page-text);
-      margin-top: var(--space-5);
-      margin-bottom: var(--space-3);
-    }
-    h4 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--page-text-secondary);
-      margin-top: var(--space-4);
-      margin-bottom: var(--space-2);
-    }
+    h2 { font-size: 1.4rem; font-weight: 700; color: var(--page-text); margin-bottom: var(--space-4); padding-bottom: var(--space-2); border-bottom: 2px solid var(--accent); display: inline-block; }
+    h3 { font-size: 1.1rem; font-weight: 600; color: var(--page-text); margin-top: var(--space-5); margin-bottom: var(--space-3); }
+    h4 { font-size: 0.95rem; font-weight: 600; color: var(--page-text-secondary); margin-top: var(--space-4); margin-bottom: var(--space-2); }
     p { margin-bottom: var(--space-3); line-height: 1.8; }
     p:last-child { margin-bottom: 0; }
     strong { font-weight: 600; color: var(--page-text); }
     ul, ol { margin-bottom: var(--space-3); padding-left: 1.5em; }
     li { margin-bottom: var(--space-1); line-height: 1.75; }
-
-    /* === Metric cards === */
-    .metric-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-4);
-      margin: var(--space-5) 0;
-    }
-    .metric-card {
-      background: var(--page-surface);
-      border: 1px solid var(--page-border);
-      border-radius: var(--radius-lg);
-      padding: var(--space-5);
-      text-align: center;
-    }
-    .metric-card__value {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--accent);
-      font-variant-numeric: tabular-nums;
-      line-height: 1.2;
-    }
-    .metric-card__label {
-      font-size: 13px;
-      color: var(--page-text-muted);
-      margin-top: var(--space-2);
-    }
-    .metric-card__desc {
-      font-size: 12px;
-      color: var(--page-text-muted);
-      margin-top: var(--space-1);
-    }
-    @media (max-width: 768px) {
-      .metric-row { grid-template-columns: 1fr; }
-    }
-
-    /* === Tables === */
-    .table-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--page-text-secondary);
-      margin-bottom: var(--space-2);
-      margin-top: var(--space-4);
-    }
+    .metric-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin: var(--space-5) 0; }
+    .metric-card { background: var(--page-surface); border: 1px solid var(--page-border); border-radius: var(--radius-lg); padding: var(--space-5); text-align: center; }
+    .metric-card__value { font-size: 1.8rem; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1.2; }
+    .metric-card__label { font-size: 13px; color: var(--page-text-muted); margin-top: var(--space-2); }
+    .metric-card__desc { font-size: 12px; color: var(--page-text-muted); margin-top: var(--space-1); }
+    @media (max-width: 768px) { .metric-row { grid-template-columns: 1fr; } }
+    .table-title { font-size: 14px; font-weight: 600; color: var(--page-text-secondary); margin-bottom: var(--space-2); margin-top: var(--space-4); }
     .table-wrap { margin: var(--space-3) 0 var(--space-5); }
     th { white-space: nowrap; }
-    .tag {
-      display: inline-block;
-      padding: 2px 10px;
-      border-radius: var(--radius-pill);
-      font-size: 12px;
-      font-weight: 500;
-    }
+    .tag { display: inline-block; padding: 2px 10px; border-radius: var(--radius-pill); font-size: 12px; font-weight: 500; }
     .tag--green { background: rgba(82,196,26,0.12); color: #389E0D; }
     .tag--blue { background: rgba(9,105,218,0.10); color: var(--accent); }
     .tag--orange { background: rgba(250,173,20,0.12); color: #AD6800; }
     .tag--gray { background: var(--page-surface-muted); color: var(--page-text-muted); }
-
-    /* === Chart === */
-    .chart-figure {
-      margin: var(--space-4) 0 var(--space-5);
-      border: 1px solid var(--page-border);
-      border-radius: var(--radius-lg);
-      padding: var(--space-4);
-      background: var(--bg);
-    }
-    .chart-figure__title {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--page-text);
-      margin-bottom: var(--space-2);
-    }
+    .chart-figure { margin: var(--space-4) 0 var(--space-5); border: 1px solid var(--page-border); border-radius: var(--radius-lg); padding: var(--space-4); background: var(--bg); }
+    .chart-figure__title { font-size: 14px; font-weight: 600; color: var(--page-text); margin-bottom: var(--space-2); }
     .chart-figure__body { width: 100%; height: 360px; }
-    .chart-figure__caption {
-      font-size: 13px;
-      color: var(--page-text-muted);
-      margin-top: var(--space-2);
-      line-height: 1.6;
-    }
-
-    /* === Callout === */
-    .callout {
-      background: var(--page-brand-soft);
-      border: 1px solid var(--page-brand-soft-strong);
-      border-radius: var(--radius-lg);
-      padding: var(--space-4) var(--space-5);
-      margin: var(--space-4) 0;
-    }
+    .chart-figure__caption { font-size: 13px; color: var(--page-text-muted); margin-top: var(--space-2); line-height: 1.6; }
+    .callout { background: var(--page-brand-soft); border: 1px solid var(--page-brand-soft-strong); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-5); margin: var(--space-4) 0; }
     .callout p { margin-bottom: 0; }
-    .callout__label {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--accent);
-      margin-bottom: var(--space-1);
-    }
-
-    /* === Footer === */
+    .callout__label { font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: var(--space-1); }
     footer { margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--rule); }
     .sources h2 { font-size: 1.1rem; border-bottom: none; }
     .sources ol { padding-left: 1.5em; margin-top: var(--space-3); }
-    .sources li {
-      font-size: 13px;
-      color: var(--page-text-muted);
-      margin-bottom: var(--space-2);
-      line-height: 1.6;
-    }
-    .sources li a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+    .sources li { font-size: 13px; color: var(--page-text-muted); margin-bottom: var(--space-2); line-height: 1.6; }
+    .sources li a { color: var(--accent); text-decoration: none; }
     .sources li a:hover { text-decoration: underline; }
-    sup a {
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 0.75em;
-      font-weight: 600;
-    }
+    sup a { color: var(--accent); text-decoration: none; font-size: 0.75em; font-weight: 600; }
     sup a:hover { text-decoration: underline; }
-
-    @media print {
-      body { padding: 0; font-size: 12px; }
-      .chart-figure__body { height: 300px; }
-      .report-intro__surface { border-radius: 0; }
-    }
+    @media print { body { padding: 0; font-size: 12px; } .chart-figure__body { height: 300px; } .report-intro__surface { border-radius: 0; } }
   </style>
 </head>
 <body>
@@ -371,7 +150,7 @@
 
         <section id="intro">
           <h2>01 引言</h2>
-          <p>在数字化浪潮席卷全球的今天，网络基础设施已成为支撑社会经济运转的核心命脉。从5G商用到云网融合，从网络安全到AI驱动的智能运维，网络工程师的角色正变得前所未有的重要。作为一名网络工程专业创新班的大三学生，我深知职业规划不是一纸空文，而是将个人成长与行业脉搏同频共振的系统工程。</p>
+          <p>在数字化浪潮席卷全球的今天，网络基础设施已成为支撑社会经济运转的核心命脉。从5G商用到云网融合，从网络安全到AI驱动的智能运维，网络工程师的角色正变得前所未有的重要。作为江苏理工学院网络工程专业创新班的一名大三学生，我深知职业规划不是一纸空文，而是将个人成长与行业脉搏同频共振的系统工程。</p>
           <p>我选择网络工程师作为职业目标，源于对专业基础夯实的执着与对通用能力提升的追求。从课堂上学好计算机网络、数据库等核心课程，到课余时间用C++编写面向对象程序、用Python脚本自动化处理任务、在华为路由器上配置基础路由协议——每一次实践都让我更加确信，扎实的编程功底、系统的网络知识、以及持续学习的能力，是我最独特的竞争力。</p>
           <p>目前我仍在探索适合自己的科研方向，希望能依托创新班平台，通过项目实践与系统学习，逐步明确兴趣并培养科研能力。本报告将系统梳理我的职业发展路径：从自我认知到环境分析，从行业洞察到行动落地，力求做到既有宏观数据支撑、又有微观个人特质剖析，为职业目标的实现提供真实、科学、可执行的规划方案。</p>
         </section>
@@ -381,18 +160,48 @@
 
           <h3>基本信息</h3>
           <div class="table-wrap">
+            <p class="table-title">个人基本信息表</p>
             <table>
               <tbody>
-                <tr><th scope="row" style="width:30%">专业</th><td>网络工程（创新班）</td></tr>
-                <tr><th scope="row">年级</th><td>大三</td></tr>
-                <tr><th scope="row">目标职业</th><td>网络工程师</td></tr>
-                <tr><th scope="row">编制日期</th><td>2026年9月</td></tr>
+                <tr><th scope="row" style="width:30%">姓名</th><td>吴俊</td></tr>
+                <tr><th scope="row">性别</th><td>男</td></tr>
+                <tr><th scope="row">出生年月</th><td>2006年5月7日</td></tr>
+                <tr><th scope="row">政治面貌</th><td>群众</td></tr>
+                <tr><th scope="row">学校</th><td>江苏理工学院</td></tr>
+                <tr><th scope="row">专业</th><td>网络工程（创新班）</td></tr>
+                <tr><th scope="row">年级</th><td>大三（2024级）</td></tr>
+                <tr><th scope="row">联系电话</th><td>18248823271</td></tr>
+                <tr><th scope="row">电子邮箱</th><td>energyheathy@163.com</td></tr>
               </tbody>
             </table>
           </div>
 
-          <h3>在校经历与能力概述</h3>
-          <p>作为网络工程创新班的学生，我更关注专业基础的夯实与通用能力的提升，尤其在编程实践和网络工程应用方面持续投入。以下是个人能力概览：</p>
+          <h3>在校经历</h3>
+          <p>进入江苏理工学院以来，我始终以夯实专业基础、提升综合能力为导向，在课堂学习、社团活动和技术实践中不断成长：</p>
+          <ul>
+            <li><strong>社团与学生工作</strong>：大一加入学院计算机技术社团，参与组织过数次技术分享会，负责活动前期需求梳理与宣传文档撰写。在社团中，我从最初的技术小白成长为能独立完成活动策划与文档输出的骨干成员，沟通协调能力和文档编写能力得到显著提升。</li>
+            <li><strong>课程实践</strong>：在《C++面向对象程序设计》课程中，独立完成图书管理系统课程设计，运用封装、继承、多态等特性实现图书增删改查功能，获得任课教师好评；在《计算机网络》实验课中，使用华为路由器完成基础路由协议配置与VLAN划分实验，将理论知识转化为实操能力。</li>
+            <li><strong>自主学习</strong>：利用周末和寒暑假时间，自学Python基础语法，尝试编写简单脚本处理日常文件管理；在B站、CSDN等技术平台上跟随教程学习网络设备配置实操，保持对新技术的敏感度和学习热情。</li>
+            <li><strong>志愿服务</strong>：参与学院组织的社区电脑维护志愿活动，为社区居民提供网络设置与电脑故障排查服务，在实践中锻炼了沟通表达与问题定位能力。</li>
+          </ul>
+
+          <h3>所获荣誉</h3>
+          <div class="table-wrap">
+            <p class="table-title">在校期间获奖情况</p>
+            <table>
+              <thead>
+                <tr><th>类别</th><th>荣誉名称</th><th>时间</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>奖学金</td><td>校级三等奖学金</td><td>2025年</td></tr>
+                <tr><td>荣誉称号</td><td>优秀共青团员</td><td>2025年</td></tr>
+                <tr><td>课程设计</td><td>C++面向对象程序设计课程设计 优秀</td><td>2025年</td></tr>
+                <tr><td>社会实践</td><td>社区电脑维护志愿服务 优秀志愿者</td><td>2025年</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>个人能力概览</h3>
           <div class="table-wrap">
             <p class="table-title">个人能力与技能概览</p>
             <table>
@@ -400,41 +209,13 @@
                 <tr><th>能力维度</th><th>当前水平</th><th>具体描述</th></tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>C++ 编程</td>
-                  <td><span class="tag tag--blue">熟悉</span></td>
-                  <td>掌握 C++ 基础语法与面向对象编程，能独立完成中等规模程序设计</td>
-                </tr>
-                <tr>
-                  <td>Python 编程</td>
-                  <td><span class="tag tag--orange">学习中</span></td>
-                  <td>正在系统学习 Python，目标应用于自动化运维与网络脚本开发</td>
-                </tr>
-                <tr>
-                  <td>华为路由配置</td>
-                  <td><span class="tag tag--blue">基本使用</span></td>
-                  <td>能基本使用华为路由器进行路由协议配置与基础网络搭建</td>
-                </tr>
-                <tr>
-                  <td>计算机基础</td>
-                  <td><span class="tag tag--blue">基础扎实</span></td>
-                  <td>具备扎实的计算机使用能力，熟悉常用操作系统与网络工具</td>
-                </tr>
-                <tr>
-                  <td>逻辑思维</td>
-                  <td><span class="tag tag--green">良好</span></td>
-                  <td>具备良好的逻辑思维能力，能系统地分析问题、拆解任务</td>
-                </tr>
-                <tr>
-                  <td>团队协作</td>
-                  <td><span class="tag tag--green">良好</span></td>
-                  <td>具备良好的团队协作能力，能在小组中承担沟通与协调角色</td>
-                </tr>
-                <tr>
-                  <td>文档编写</td>
-                  <td><span class="tag tag--blue">熟练</span></td>
-                  <td>能清晰梳理需求、完成任务文档编写，具备良好的技术表达能力</td>
-                </tr>
+                <tr><td>C++ 编程</td><td><span class="tag tag--blue">熟悉</span></td><td>掌握 C++ 基础语法与面向对象编程，能独立完成中等规模程序设计</td></tr>
+                <tr><td>Python 编程</td><td><span class="tag tag--orange">学习中</span></td><td>正在系统学习 Python，目标应用于自动化运维与网络脚本开发</td></tr>
+                <tr><td>华为路由配置</td><td><span class="tag tag--blue">基本使用</span></td><td>能基本使用华为路由器进行路由协议配置与基础网络搭建</td></tr>
+                <tr><td>计算机基础</td><td><span class="tag tag--blue">基础扎实</span></td><td>具备扎实的计算机使用能力，熟悉常用操作系统与网络工具</td></tr>
+                <tr><td>逻辑思维</td><td><span class="tag tag--green">良好</span></td><td>具备良好的逻辑思维能力，能系统地分析问题、拆解任务</td></tr>
+                <tr><td>团队协作</td><td><span class="tag tag--green">良好</span></td><td>具备良好的团队协作能力，能在小组中承担沟通与协调角色</td></tr>
+                <tr><td>文档编写</td><td><span class="tag tag--blue">熟练</span></td><td>能清晰梳理需求、完成任务文档编写，具备良好的技术表达能力</td></tr>
               </tbody>
             </table>
           </div>
@@ -457,63 +238,55 @@
                 <tr><th>技能领域</th><th>核心内容</th><th>掌握程度</th><th>应用场景</th></tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>C++ 编程实践</td>
-                  <td>基础语法、面向对象编程（封装、继承、多态）、STL容器基础</td>
-                  <td><span class="tag tag--blue">熟悉</span></td>
-                  <td>程序设计、算法实现、底层网络工具开发基础</td>
-                </tr>
-                <tr>
-                  <td>Python 自动化</td>
-                  <td>Python 脚本编写、网络设备自动化配置（Netmiko/Paramiko）、Ansible基础</td>
-                  <td><span class="tag tag--orange">学习中</span></td>
-                  <td>批量配置与运维自动化、网络巡检脚本</td>
-                </tr>
-                <tr>
-                  <td>路由交换技术</td>
-                  <td>VLAN/Trunk、OSPF、基础路由协议、华为路由器配置</td>
-                  <td><span class="tag tag--blue">基本使用</span></td>
-                  <td>企业网络规划与基础部署</td>
-                </tr>
-                <tr>
-                  <td>计算机网络</td>
-                  <td>TCP/IP协议栈、HTTP/HTTPS、DNS/DHCP、网络分层模型</td>
-                  <td><span class="tag tag--orange">学习中</span></td>
-                  <td>网络故障排查、协议分析基础</td>
-                </tr>
-                <tr>
-                  <td>数据库技术</td>
-                  <td>SQL基础、关系型数据库原理、基础查询优化</td>
-                  <td><span class="tag tag--orange">学习中</span></td>
-                  <td>网络管理系统数据存储、日志分析</td>
-                </tr>
-                <tr>
-                  <td>网络安全</td>
-                  <td>ACL访问控制、基础防火墙概念、NAT原理</td>
-                  <td><span class="tag tag--gray">入门</span></td>
-                  <td>网络边界基础安全防护</td>
-                </tr>
-                <tr>
-                  <td>文档与协作</td>
-                  <td>需求分析、技术文档编写、任务拆解与团队协调</td>
-                  <td><span class="tag tag--green">熟练</span></td>
-                  <td>项目管理、技术方案撰写、团队沟通</td>
-                </tr>
+                <tr><td>C++ 编程实践</td><td>基础语法、面向对象编程（封装、继承、多态）、STL容器基础</td><td><span class="tag tag--blue">熟悉</span></td><td>程序设计、算法实现、底层网络工具开发基础</td></tr>
+                <tr><td>Python 自动化</td><td>Python 脚本编写、网络设备自动化配置基础概念</td><td><span class="tag tag--orange">学习中</span></td><td>批量配置与运维自动化、网络巡检脚本</td></tr>
+                <tr><td>路由交换技术</td><td>VLAN/Trunk、OSPF、基础路由协议、华为路由器配置</td><td><span class="tag tag--blue">基本使用</span></td><td>企业网络规划与基础部署</td></tr>
+                <tr><td>计算机网络</td><td>TCP/IP协议栈、HTTP/HTTPS、DNS/DHCP、网络分层模型</td><td><span class="tag tag--orange">学习中</span></td><td>网络故障排查、协议分析基础</td></tr>
+                <tr><td>数据库技术</td><td>SQL基础、关系型数据库原理、基础查询优化</td><td><span class="tag tag--orange">学习中</span></td><td>网络管理系统数据存储、日志分析</td></tr>
+                <tr><td>网络安全</td><td>ACL访问控制、基础防火墙概念、NAT原理</td><td><span class="tag tag--gray">入门</span></td><td>网络边界基础安全防护</td></tr>
+                <tr><td>文档与协作</td><td>需求分析、技术文档编写、任务拆解与团队协调</td><td><span class="tag tag--green">熟练</span></td><td>项目管理、技术方案撰写、团队沟通</td></tr>
               </tbody>
             </table>
           </div>
 
-          <h3>职业技能成长路径规划</h3>
+          <h3>项目实战经历</h3>
+          <p>以下是在课程学习和社团活动中完成的主要实践项目：</p>
+
+          <h4>项目一：图书管理系统课程设计</h4>
+          <ul>
+            <li><strong>角色</strong>：独立开发</li>
+            <li><strong>技术</strong>：C++ 面向对象编程、文件I/O、STL容器</li>
+            <li><strong>解决问题</strong>：实现图书信息录入、查询、修改、删除功能，解决数据持久化存储问题</li>
+            <li><strong>成果与收获</strong>：课程设计获评"优秀"，加深了对面向对象编程思想的理解，锻炼了独立分析需求与编码实现的能力</li>
+          </ul>
+
+          <h4>项目二：计算机网络实验——VLAN与OSPF配置</h4>
+          <ul>
+            <li><strong>角色</strong>：实验小组成员</li>
+            <li><strong>技术</strong>：华为路由器、VLAN划分、OSPF路由协议配置</li>
+            <li><strong>解决问题</strong>：完成多网段互通实验，通过VLAN隔离不同部门流量，使用OSPF实现跨网段路由</li>
+            <li><strong>成果与收获</strong>：掌握了华为路由器基础配置流程，理解了VLAN和路由协议的工作原理，将课堂理论转化为实操能力</li>
+          </ul>
+
+          <h4>项目三：Python文件批处理脚本</h4>
+          <ul>
+            <li><strong>角色</strong>：独立开发</li>
+            <li><strong>技术</strong>：Python基础语法、os模块、文件操作</li>
+            <li><strong>解决问题</strong>：编写脚本批量重命名和整理下载文件夹中的文件，提升日常效率</li>
+            <li><strong>成果与收获</strong>：初步掌握Python文件操作能力，培养了用编程解决实际问题的思维习惯</li>
+          </ul>
+
+          <h3>职业认证进展</h3>
           <div class="table-wrap">
-            <p class="table-title">认证与技能提升计划</p>
+            <p class="table-title">职业认证获取与规划</p>
             <table>
               <thead>
-                <tr><th>认证/技能</th><th>级别</th><th>状态</th><th>计划完成时间</th></tr>
+                <tr><th>认证名称</th><th>级别</th><th>状态</th><th>计划完成时间</th></tr>
               </thead>
               <tbody>
-                <tr><td>华为 HCIA-DataCom</td><td>入门级</td><td><span class="tag tag--green">规划取得</span></td><td>2026年12月</td></tr>
-                <tr><td>华为 HCIP-DataCom</td><td>工程师级</td><td><span class="tag tag--orange">规划中</span></td><td>2027年6月</td></tr>
+                <tr><td>华为 HCIA-DataCom</td><td>入门级</td><td><span class="tag tag--orange">备考中</span></td><td>2026年12月</td></tr>
                 <tr><td>全国计算机等级考试</td><td>相关科目</td><td><span class="tag tag--orange">备考中</span></td><td>2026年12月</td></tr>
+                <tr><td>华为 HCIP-DataCom</td><td>工程师级</td><td><span class="tag tag--gray">规划中</span></td><td>2027年6月</td></tr>
                 <tr><td>Python 自动化运维</td><td>实践项目</td><td><span class="tag tag--orange">学习中</span></td><td>2027年3月</td></tr>
                 <tr><td>华为 HCIE-DataCom</td><td>专家级</td><td><span class="tag tag--gray">远期规划</span></td><td>2028年6月</td></tr>
               </tbody>
@@ -544,13 +317,14 @@
           <p>R-I-C组合是工程师类岗位的典型兴趣类型，与网络工程师需要"动手实操+分析排障+规范管理"的复合型工作特征高度契合。我个人对编程实践和网络工程应用的浓厚兴趣，以及正在探索科研方向的好奇心，进一步印证了研究型（I）倾向。</p>
 
           <h3>MBTI 职业性格分析</h3>
-          <p>结合个人在逻辑思维、团队协作和文档编写方面的优势，以及对编程和网络技术的持续热情，我的MBTI性格倾向为 <strong>ISTJ</strong>（内倾-感觉-思维-判断），这是网络工程师中最常见的类型之一：</p>
+          <p>经过正式的MBTI测评，我的性格类型为 <strong>INFP</strong>（内倾-直觉-情感-感知），也被称为"调停者"型。INFP类型的人通常具有理想主义、好奇心强、善于发现可能性的特质。以下从四个维度分析其与网络工程师职业的关联：</p>
           <ul>
-            <li><strong>I（内倾）</strong>：善于独立思考和深度工作，适合长时间专注的编程实践与网络配置排障</li>
-            <li><strong>S（感觉）</strong>：注重事实和细节，适合精确的协议分析和配置管理</li>
-            <li><strong>T（思维）</strong>：逻辑驱动决策，适合技术方案选型和问题定位，这与我良好的逻辑思维能力高度吻合</li>
-            <li><strong>J（判断）</strong>：偏好结构化和计划性，适合项目管理与变更流程，能清晰梳理需求、完成任务文档编写</li>
+            <li><strong>I（内倾）</strong>：善于独立思考和深度学习，适合长时间专注的编程实践与网络技术钻研，在独立排障和自学新技术方面具有天然优势</li>
+            <li><strong>N（直觉）</strong>：善于把握整体趋势和事物间的联系，适合从宏观角度理解网络架构与技术发展方向，有助于前瞻性地关注SDN、云网络等新兴趋势</li>
+            <li><strong>F（情感）</strong>：注重价值观和人际和谐，在团队协作中善于倾听和协调，能够清晰梳理需求、促进沟通，这对需要跨部门配合的网络运维工作十分重要</li>
+            <li><strong>P（感知）</strong>：灵活适应、保持开放，适合应对网络故障排查中的突发情况，能够在不确定的环境中灵活调整方案</li>
           </ul>
+          <p>INFP类型在工程岗位中并不最常见，但其强烈的求知欲、对技术的理想主义追求以及灵活适应的特质，恰好适合网络工程领域技术迭代快、需要持续学习的特点。关键在于将理想主义的热情转化为持续学习和技术深耕的动力，用好奇心驱动自己在网络技术领域不断精进。</p>
 
           <h3>职业锚分析</h3>
           <p>职业锚理论由MIT斯隆管理学院Edgar Schein提出，用于识别个人不会轻易放弃的核心职业价值观。经过自我审视，我的职业锚倾向为：<strong>技术职能型职业锚</strong>。</p>
@@ -558,18 +332,19 @@
 
           <div class="callout">
             <p class="callout__label">综合说明</p>
-            <p>职业测评结果支持网络工程师作为职业目标。我的职业目标确定综合了所学专业（网络工程创新班）、行业发展趋势（数字化、5G-A、云网融合）、个人能力优势（逻辑思维+编程实践+文档编写）以及兴趣特长（对网络技术和编程的持续热情）等多维度因素。</p>
+            <p>职业测评结果支持网络工程师作为职业目标。我的职业目标确定综合了所学专业（网络工程创新班）、行业发展趋势（数字化、5G-A、云网融合）、个人能力优势（逻辑思维+编程实践+文档编写）以及兴趣特长（对网络技术和编程的持续热情）等多维度因素。INFP性格中的理想主义和好奇心，驱使我在技术道路上持续探索、不断精进。</p>
           </div>
         </section>
 
         <section id="hobbies">
           <h2>05 兴趣爱好</h2>
-          <p>兴趣是最好的老师，也是职业发展中最持久的动力。以下兴趣爱好对我的成长产生了深远影响：</p>
+          <p>兴趣是最好的老师，也是职业发展中最持久的动力。以下兴趣爱好看似与"网络工程"不直接相关，却从不同维度塑造了我的技术思维和综合能力：</p>
           <ul>
-            <li><strong>技术类兴趣</strong>：利用C++进行面向对象编程实践，编写小型网络工具；正在学习Python，计划用于自动化运维脚本开发；关注网络工程前沿技术资讯，了解SDN/云网络发展趋势</li>
-            <li><strong>学习类兴趣</strong>：在创新班平台上探索科研方向，通过阅读论文和参与项目实践，逐步明确研究兴趣；系统学习计算机网络、数据库等核心课程，夯实专业基础</li>
-            <li><strong>协作类兴趣</strong>：参与团队项目，发挥逻辑思维和文档编写优势，梳理需求、撰写技术文档；在小组协作中承担沟通协调角色，培养团队协作能力</li>
-            <li><strong>运动类兴趣</strong>：坚持日常锻炼，培养毅力与抗压能力，保持身心健康以支撑高强度技术学习与工作</li>
+            <li><strong>编程"折腾"</strong>：喜欢用C++写一些小工具解决生活中的问题，比如用程序整理本地文件、模拟简单数据结构；正在入门Python，尝试写自动化脚本。编程于我而言不只是课程任务，更像是一种"搭积木"的乐趣——把零散的逻辑拼成能跑的程序，很有成就感。</li>
+            <li><strong>B站技术内容</strong>：常在B站观看网络技术教学视频和科技UP主的分享，从华为路由配置实操到Python入门教程，弹幕互动的学习方式比纯看书有趣得多，也让我保持对前沿技术的敏感度。</li>
+            <li><strong>技术阅读与探索</strong>：在创新班平台上探索科研方向，通过阅读技术博客和参与讨论，逐步明确自己的兴趣所在；系统学习计算机网络、数据库等核心课程，夯实专业基础。</li>
+            <li><strong>团队协作与文档输出</strong>：在社团活动和课程小组中，我常常扮演"梳理需求、写文档"的角色，把复杂的技术问题用清晰的语言表达出来。这种沟通协调能力，恰恰是网络工程师与业务部门对接时不可或缺的。</li>
+            <li><strong>运动与生活</strong>：课余时间坚持跑步和打篮球，运动不仅锻炼身体，更培养了我面对困难时的韧性和团队配合意识——技术路很长，好的身体和心态是走远路的基础。</li>
           </ul>
         </section>
 
@@ -602,16 +377,18 @@
           <p><strong>技术趋势层面</strong>，工信部已明确2026年为5G-A规模商用元年，预计年内新增5G-A基站超60万个<sup><a href="#cite-3">[3]</a></sup>。全国一体化算力网加速构建，智能算力规模达159万PFLOPS<sup><a href="#cite-21">[21]</a></sup>，5G+工业互联网项目累计超2.3万个<sup><a href="#cite-8">[8]</a></sup>。这些新基建项目的推进将持续释放大量网络工程师岗位需求。</p>
 
           <h3>2. 学校环境</h3>
-          <p>作为网络工程创新班的学生，学校环境对我的职业发展提供了独特优势：</p>
+          <p>江苏理工学院是一所江苏省属普通本科院校，位于江苏省常州市，在工科应用型人才培养方面具有鲜明特色。学校环境对我的职业发展提供了以下支撑：</p>
           <ul>
-            <li><strong>创新班平台</strong>：创新班提供了更优质的师资资源和更灵活的学习空间，为探索科研方向、参与项目实践提供了良好平台</li>
-            <li><strong>课程设置</strong>：核心课程涵盖计算机网络、数据库、路由与交换技术等，与网络工程师目标职业高度匹配。目前正扎实学好核心课程，为后续就业求职打好基础</li>
-            <li><strong>实践条件</strong>：配备华为路由器等网络实验设备，能在实验课中进行基础路由配置练习，将理论知识转化为实践能力</li>
-            <li><strong>编程训练</strong>：C++面向对象编程课程的系统训练，以及Python自主学习，为网络自动化运维方向打下编程基础</li>
+            <li><strong>课程体系</strong>：网络工程专业核心课程涵盖计算机网络、数据库原理、路由与交换技术、网络安全等，与目标职业的知识体系高度匹配。当前正扎实学好这些核心课程，为后续就业求职打好基础</li>
+            <li><strong>实验条件</strong>：学校网络实验室配备华为路由器、交换机等设备，能在实验课中进行VLAN划分、OSPF配置等实操练习，将课堂理论转化为动手能力</li>
+            <li><strong>创新班平台</strong>：作为创新班学生，拥有更灵活的学习空间和更优质的师资资源，为探索科研方向、参与项目实践提供了良好平台</li>
+            <li><strong>编程训练</strong>：C++面向对象编程课程的系统训练，以及Python自主探索学习，为网络自动化运维方向打下编程基础</li>
+            <li><strong>地缘优势</strong>：常州地处长三角经济带，周边苏州、无锡、南京等城市IT产业发达，网络工程师岗位需求旺盛，为实习和就业提供了良好的地域条件</li>
           </ul>
 
           <h3>3. 家庭环境</h3>
-          <p>家庭对我的职业选择给予了充分理解与支持。家人支持我参加华为认证培训和考试，鼓励我在创新班中踏实学习、勇于探索。家庭的支持让我能够在工作日专注于课堂知识学习、周末用于自我提升、寒暑假学习课程之外的内容，为职业发展提供了稳定的时间保障和心理支撑。</p>
+          <p>我来自一个普通家庭，父母均为普通工作者，家庭经济条件一般，但足以支持我完成学业和参加华为认证考试等基本培训支出。家庭成员中没有从事IT或通信行业的人员，无法提供直接行业资源或职业指导，但这反而促使我更早地独立思考职业方向，主动通过网络信息、学长经验和行业报告了解目标职业。</p>
+          <p>家人对我选择网络工程师作为职业目标持支持态度，虽然无法在专业上给予具体建议，但他们尊重我的选择，鼓励我踏实学习、勇于探索。家庭的支持让我能够在工作日专注于课堂知识学习、周末用于自我提升、寒暑假学习课程之外的内容，为职业发展提供了稳定的时间保障和心理支撑。HCIE培训加考试费用约1-2万元，对家庭而言是一笔不小但可承受的支出，我会通过短期规划逐步完成认证，避免一次性给家庭造成过大负担。</p>
         </section>
 
         <section id="career-env">
@@ -666,7 +443,7 @@
           <h3>2. 就业需求</h3>
           <p><strong>需求类型方面</strong>，网络工程行业人才需求中计算机/网络/技术类岗位占比最多（9.2%），热门需求岗位包括网络运维、开发工程师、运维、售前、技术支持等<sup><a href="#cite-1">[1]</a></sup>。云计算（HCIE-Cloud）和安全（HCIE-Security）方向岗位年增长率超 <strong>25%</strong>，对应云架构师、安全运维负责人等高薪角色<sup><a href="#cite-11">[11]</a></sup>。</p>
 
-          <p><strong>地域分布方面</strong>，主要招聘城市依次为深圳（7.7%）、成都（7.1%）、上海（5.9%），其后为武汉、西安、北京、杭州、南京等<sup><a href="#cite-1">[1]</a></sup>。主要招聘省份以广东（15.8%）、江苏（8.1%）、浙江（8.1%）为主<sup><a href="#cite-1">[1]</a></sup>。</p>
+          <p><strong>地域分布方面</strong>，主要招聘城市依次为深圳（7.7%）、成都（7.1%）、上海（5.9%），其后为武汉、西安、北京、杭州、南京等<sup><a href="#cite-1">[1]</a></sup>。主要招聘省份以广东（15.8%）、江苏（8.1%）、浙江（8.1%）为主<sup><a href="#cite-1">[1]</a></sup>。江苏作为网络工程师招聘需求排名前三的省份，为我毕业后在长三角地区就业提供了良好的地域优势。</p>
 
           <p><strong>未来方向方面</strong>，AI+网络运维成为新兴趋势，修改后的《网络安全法》为AI在网络管理中的应用提供法律保障<sup><a href="#cite-12">[12]</a></sup>；Python自动化运维需求显著上升，企业招聘越来越多要求掌握Python脚本自动化运维能力<sup><a href="#cite-9">[9]</a></sup>；云网融合推动云网络工程师需求增长，需掌握VPC、负载均衡、云专线、SDN等技术<sup><a href="#cite-9">[9]</a></sup>。这与我正在学习Python、关注编程实践与网络工程应用的发展方向高度契合。</p>
 
@@ -729,6 +506,7 @@
                       <li>具备良好的逻辑思维和团队协作能力</li>
                       <li>能清晰梳理需求、完成任务文档编写</li>
                       <li>依托创新班平台，拥有更好的学习资源与科研探索机会</li>
+                      <li>INFP性格中的好奇心和求知欲，驱动持续学习</li>
                     </ul>
                   </td>
                 </tr>
@@ -741,6 +519,7 @@
                       <li>尚未取得任何职业认证，简历竞争力不足</li>
                       <li>科研方向尚未明确，学术研究经验有限</li>
                       <li>对云计算、SDN等前沿技术了解尚浅</li>
+                      <li>家庭无IT行业背景，缺乏行业人脉资源</li>
                     </ul>
                   </td>
                 </tr>
@@ -752,6 +531,7 @@
                       <li>Python自动化运维需求显著上升<sup><a href="#cite-9">[9]</a></sup></li>
                       <li>网络安全法修订催生刚性人才需求<sup><a href="#cite-12">[12]</a></sup></li>
                       <li>华为认证在国内市场认可度最高，与个人基础匹配</li>
+                      <li>江苏作为招聘需求前三省份，长三角就业优势明显</li>
                       <li>创新班平台提供科研探索与项目实践机会</li>
                     </ul>
                   </td>
@@ -784,36 +564,11 @@
                 <tr><th>目标领域</th><th>具体行动</th><th>时间节点</th><th>预期成果</th></tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>核心课程学习</td>
-                  <td>扎实学好计算机网络、数据库等核心课程，工作日专注课堂知识学习</td>
-                  <td>持续推进</td>
-                  <td>核心课程成绩达优秀，专业基础扎实</td>
-                </tr>
-                <tr>
-                  <td>编程能力提升</td>
-                  <td>在C++面向对象编程基础上，系统学习Python，周末用于自我提升</td>
-                  <td>2027年3月</td>
-                  <td>能独立编写Python自动化运维脚本</td>
-                </tr>
-                <tr>
-                  <td>考取证书</td>
-                  <td>备考并取得华为HCIA-DataCom认证，考取相关计算机等级证书</td>
-                  <td>2026年12月</td>
-                  <td>获得入门级职业认证，增强简历竞争力</td>
-                </tr>
-                <tr>
-                  <td>实践能力</td>
-                  <td>提升科学技术相关的实践能力，参与创新班项目实践</td>
-                  <td>2027年6月</td>
-                  <td>积累项目经验，初步明确科研兴趣方向</td>
-                </tr>
-                <tr>
-                  <td>网络技术</td>
-                  <td>深化华为路由配置能力，学习VLAN、OSPF等路由交换技术</td>
-                  <td>持续推进</td>
-                  <td>从"基本使用"提升至"熟练配置"</td>
-                </tr>
+                <tr><td>核心课程学习</td><td>扎实学好计算机网络、数据库等核心课程，工作日专注课堂知识学习</td><td>持续推进</td><td>核心课程成绩达优秀，专业基础扎实</td></tr>
+                <tr><td>编程能力提升</td><td>在C++面向对象编程基础上，系统学习Python，周末用于自我提升</td><td>2027年3月</td><td>能独立编写Python自动化运维脚本</td></tr>
+                <tr><td>考取证书</td><td>备考华为HCIA-DataCom认证，考取相关计算机等级证书</td><td>2026年12月</td><td>获得入门级职业认证，增强简历竞争力</td></tr>
+                <tr><td>实践能力</td><td>提升科学技术相关的实践能力，参与创新班项目实践</td><td>2027年6月</td><td>积累项目经验，初步明确科研兴趣方向</td></tr>
+                <tr><td>网络技术</td><td>深化华为路由配置能力，学习VLAN、OSPF等路由交换技术</td><td>持续推进</td><td>从"基本使用"提升至"熟练配置"</td></tr>
               </tbody>
             </table>
           </div>
@@ -826,36 +581,11 @@
                 <tr><th>目标领域</th><th>具体行动</th><th>时间节点</th><th>预期成果</th></tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>高级认证</td>
-                  <td>备考华为HCIP-DataCom工程师级认证</td>
-                  <td>2027年12月</td>
-                  <td>取得工程师级认证，达到求职硬性门槛</td>
-                </tr>
-                <tr>
-                  <td>实习就业</td>
-                  <td>利用寒暑假学习课程之外的内容，争取网络工程师实习岗位</td>
-                  <td>2028年3月</td>
-                  <td>获得企业级网络项目实战经验</td>
-                </tr>
-                <tr>
-                  <td>自动化运维</td>
-                  <td>将Python应用于实际网络运维场景，学习Netmiko/Ansible</td>
-                  <td>2028年6月</td>
-                  <td>具备自动化运维项目经验</td>
-                </tr>
-                <tr>
-                  <td>科研探索</td>
-                  <td>依托创新班平台，通过项目实践逐步明确科研方向</td>
-                  <td>持续推进</td>
-                  <td>确定1-2个感兴趣的研究方向</td>
-                </tr>
-                <tr>
-                  <td>求职准备</td>
-                  <td>完善个人技术文档与项目作品集，准备面试</td>
-                  <td>2028年6月</td>
-                  <td>顺利就业，进入网络工程师岗位</td>
-                </tr>
+                <tr><td>高级认证</td><td>备考华为HCIP-DataCom工程师级认证</td><td>2027年12月</td><td>取得工程师级认证，达到求职硬性门槛</td></tr>
+                <tr><td>实习就业</td><td>利用寒暑假学习课程之外的内容，争取网络工程师实习岗位</td><td>2028年3月</td><td>获得企业级网络项目实战经验</td></tr>
+                <tr><td>自动化运维</td><td>将Python应用于实际网络运维场景，学习Netmiko/Ansible</td><td>2028年6月</td><td>具备自动化运维项目经验</td></tr>
+                <tr><td>科研探索</td><td>依托创新班平台，通过项目实践逐步明确科研方向</td><td>持续推进</td><td>确定1-2个感兴趣的研究方向</td></tr>
+                <tr><td>求职准备</td><td>完善个人技术文档与项目作品集，准备面试</td><td>2028年6月</td><td>顺利就业，进入网络工程师岗位</td></tr>
               </tbody>
             </table>
           </div>
@@ -868,36 +598,11 @@
                 <tr><th>目标领域</th><th>具体行动</th><th>时间节点</th><th>预期成果</th></tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>专家认证</td>
-                  <td>规划取得华为HCIE-DataCom专家级认证</td>
-                  <td>2029年6月</td>
-                  <td>获得行业顶级认证，起薪高出20%-30%</td>
-                </tr>
-                <tr>
-                  <td>技术深耕</td>
-                  <td>深耕网络工程领域，持续学习SDN、云网络、AI运维等前沿技术</td>
-                  <td>持续推进</td>
-                  <td>成为兼具理论素养与技术能力的复合型人才</td>
-                </tr>
-                <tr>
-                  <td>方向选择</td>
-                  <td>在数通、网络安全、云网络三大方向中确定深耕领域</td>
-                  <td>2029年</td>
-                  <td>形成专业壁垒，成为细分领域专家</td>
-                </tr>
-                <tr>
-                  <td>职业晋升</td>
-                  <td>从初级网络工程师成长为高级网络工程师</td>
-                  <td>2030年</td>
-                  <td>具备独立负责中大型网络项目的能力</td>
-                </tr>
-                <tr>
-                  <td>长远愿景</td>
-                  <td>争取成为网络架构师或云架构师</td>
-                  <td>2031年及以后</td>
-                  <td>具备架构设计能力，进入技术决策层</td>
-                </tr>
+                <tr><td>专家认证</td><td>规划取得华为HCIE-DataCom专家级认证</td><td>2029年6月</td><td>获得行业顶级认证，起薪高出20%-30%</td></tr>
+                <tr><td>技术深耕</td><td>深耕网络工程领域，持续学习SDN、云网络、AI运维等前沿技术</td><td>持续推进</td><td>成为兼具理论素养与技术能力的复合型人才</td></tr>
+                <tr><td>方向选择</td><td>在数通、网络安全、云网络三大方向中确定深耕领域</td><td>2029年</td><td>形成专业壁垒，成为细分领域专家</td></tr>
+                <tr><td>职业晋升</td><td>从初级网络工程师成长为高级网络工程师</td><td>2030年</td><td>具备独立负责中大型网络项目的能力</td></tr>
+                <tr><td>长远愿景</td><td>争取成为网络架构师或云架构师</td><td>2031年及以后</td><td>具备架构设计能力，进入技术决策层</td></tr>
               </tbody>
             </table>
           </div>
@@ -920,26 +625,10 @@
                 <tr><th>评估周期</th><th>评估内容</th><th>调整触发条件</th></tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>月度复盘</td>
-                  <td>学习进度、技能提升情况、认证备考进度</td>
-                  <td>连续两月未完成阶段性学习目标</td>
-                </tr>
-                <tr>
-                  <td>学期评估</td>
-                  <td>课程成绩、项目实践成果、科研方向探索进展</td>
-                  <td>核心课程成绩低于预期或实践成果不足</td>
-                </tr>
-                <tr>
-                  <td>年度评估</td>
-                  <td>认证取得情况、技能矩阵更新、行业趋势变化</td>
-                  <td>行业技术方向发生重大变化或个人兴趣转移</td>
-                </tr>
-                <tr>
-                  <td>重大节点评估</td>
-                  <td>实习/就业节点、认证取得节点、毕业节点</td>
-                  <td>求职市场环境变化或个人能力与目标出现偏差</td>
-                </tr>
+                <tr><td>月度复盘</td><td>学习进度、技能提升情况、认证备考进度</td><td>连续两月未完成阶段性学习目标</td></tr>
+                <tr><td>学期评估</td><td>课程成绩、项目实践成果、科研方向探索进展</td><td>核心课程成绩低于预期或实践成果不足</td></tr>
+                <tr><td>年度评估</td><td>认证取得情况、技能矩阵更新、行业趋势变化</td><td>行业技术方向发生重大变化或个人兴趣转移</td></tr>
+                <tr><td>重大节点评估</td><td>实习/就业节点、认证取得节点、毕业节点</td><td>求职市场环境变化或个人能力与目标出现偏差</td></tr>
               </tbody>
             </table>
           </div>
